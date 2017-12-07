@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Information</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="card-background-page">
+
+  <ion-card (click)="openPage(1)">
+    <img src="/android_asset/www/assets/icon/humanheart.jpg" />
+    <div class="card-title">CABG</div>
+   
+  </ion-card>
+
+  <ion-card (click)="openPage(2)">
+    <img src="/android_asset/www/assets/icon/recovery.jpg" />
+    <div class="card-title">Recovery From CABG</div>
+    
+  </ion-card>
+
+  <ion-card (click)="openPage(3)">
+    <img src="/android_asset/www/assets/icon/takecare.jpg" />
+    <div class="card-title">Taking Care of Heart</div>
+ 
+  </ion-card>
+
+ 
+
+</ion-content>
