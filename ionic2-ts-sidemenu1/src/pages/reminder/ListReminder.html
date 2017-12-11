@@ -1,31 +1,180 @@
+<ion-header>
+  <ion-navbar>
+    
+     
+   
+    <ion-title>{{event}}</ion-title>
+  </ion-navbar>
+</ion-header>
+
 <ion-content>
   <div padding>
     <ion-segment isActive="true" [(ngModel)]="pet">
       <ion-segment-button value="Add">
-        Add Reminder
+        Add {{event}}
       </ion-segment-button>
       <ion-segment-button value="List">
-        List Reminder
+        List {{event}}
       </ion-segment-button>
     </ion-segment>
   </div>
 
   <div [ngSwitch]="pet">
     <ion-list *ngSwitchCase="'Add'">
-      <ion-item>
-        <ion-thumbnail item-start>
+     
+     
+        <div *ngIf="item==1" >
+        
 
-        </ion-thumbnail>
-        <h2>Add</h2>
-      </ion-item>
-      ...
+            <ion-item>
+              <ion-label> Date</ion-label>
+              <ion-datetime displayFormat="MMM DD YYYY" [(ngModel)]="event.month"></ion-datetime>
+            </ion-item>
+
+
+            <ion-item>
+              <ion-label> Time</ion-label>
+              <ion-datetime displayFormat="h:mm A" pickerFormat="h mm A" [(ngModel)]="event.timeStarts"></ion-datetime>
+            </ion-item>
+
+
+
+            <ion-item>
+              <ion-label floating>Durations(min)</ion-label>
+              <ion-input type="number"></ion-input>
+            </ion-item>
+
+         
+
+          <div padding>
+            <button ion-button color="primary" block>Add {{event}}</button>
+          </div>
+        </div>
+        <div *ngIf="item==2">
+          <ion-list>
+
+            <ion-item>
+              <ion-label floating>Name</ion-label>
+              <ion-input type="text"></ion-input>
+            </ion-item>
+
+            <ion-item>
+              <ion-label floating>Description</ion-label>
+              <ion-input type="text"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label> Date</ion-label>
+              <ion-datetime displayFormat="MMM DD YYYY" [(ngModel)]="event.month"></ion-datetime>
+            </ion-item>
+
+
+            <ion-item>
+              <ion-label> Time</ion-label>
+              <ion-datetime displayFormat="h:mm A" pickerFormat="h mm A" [(ngModel)]="event.timeStarts"></ion-datetime>
+            </ion-item>
+
+          </ion-list>
+
+          <div padding>
+            <button ion-button color="primary" block>Add{{event}}</button>
+          </div>
+        </div>
+        <div *ngIf="item==3">
+          <ion-list>
+
+            <ion-item>
+              <ion-label floating>Blood Pressuree</ion-label>
+              <ion-input type="number"></ion-input>
+            </ion-item>
+
+            <ion-item>
+              <ion-label floating>Blood Sugar before Meal</ion-label>
+              <ion-input type="number"></ion-input>
+            </ion-item>
+
+            <ion-item>
+              <ion-label floating>Blood Sugar After Meal</ion-label>
+              <ion-input type="number"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label floating>Weight</ion-label>
+              <ion-input type="number"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label floating>Heart Rate</ion-label>
+              <ion-input type="number"></ion-input>
+            </ion-item>
+          </ion-list>
+
+          <div padding>
+            <button ion-button color="primary" block>Add {{event}}</button>
+          </div>
+        </div>
+        <div *ngIf="item==4">
+          <ion-list>
+
+            <ion-item>
+              <ion-label floating>Medicine Name</ion-label>
+              <ion-input type="text"></ion-input>
+            </ion-item>
+
+            <ion-item>
+              <ion-label floating>Strength</ion-label>
+              <ion-input type="password"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label floating>Unit</ion-label>
+              <ion-select [(ngModel)]="gender">
+                <ion-option value="f">Mg</ion-option>
+                <ion-option value="m">ml</ion-option>
+                <ion-option value="f">microgram</ion-option>
+                <ion-option value="m">gram</ion-option>
+              </ion-select>
+            </ion-item>
+
+            <ion-item>
+              <ion-label floating>Schedule</ion-label>
+              <ion-select [(ngModel)]="gender">
+                <ion-option value="f">Daily</ion-option>
+                <ion-option value="m">Weekly</ion-option>
+                <ion-option value="f">Monthly</ion-option>
+
+              </ion-select>
+            </ion-item>
+            <ion-item>
+              <ion-label floating>Number of Times</ion-label>
+              <ion-input type="number"></ion-input>
+            </ion-item>
+
+            <ion-item>
+              <ion-label> Date</ion-label>
+              <ion-datetime displayFormat="MMM DD YYYY" [(ngModel)]="event.month"></ion-datetime>
+            </ion-item>
+
+
+            <ion-item>
+              <ion-label> Time</ion-label>
+              <ion-datetime displayFormat="h:mm A" pickerFormat="h mm A" [(ngModel)]="event.timeStarts"></ion-datetime>
+            </ion-item>
+
+            <ion-item>
+              <ion-label floating>Stock</ion-label>
+              <ion-input type="number"></ion-input>
+            </ion-item>
+
+
+          </ion-list>
+
+          <div padding>
+            <button ion-button color="primary" block>Add {{event}}</button>
+          </div>
+        </div>
+     
     </ion-list>
 
     <ion-list *ngSwitchCase="'List'">
       <ion-item>
-        <ion-thumbnail item-start>
-         
-        </ion-thumbnail>
+       
         <h2>List</h2>
       </ion-item>
       ...

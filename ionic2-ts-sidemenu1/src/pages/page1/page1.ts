@@ -51,7 +51,7 @@ export class Page1 {
     
   }
   reminder(){
-    this.navCtrl.setRoot(Reminder);
+    this.navCtrl.push(Reminder);
     
   }
   

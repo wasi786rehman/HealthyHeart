@@ -22,8 +22,8 @@ export class Reminder{
     
    
   }
-  add(item) {
-    this.navCtrl.push(ListReminder, {item:item});
+  add(item,event) {
+    this.navCtrl.push(ListReminder, {item:item,event:event});
   }
   list()
   {
