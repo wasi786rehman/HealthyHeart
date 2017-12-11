@@ -8,24 +8,36 @@
     </ion-navbar>
   </ion-header>
 
-  <ion-content>
-    <img src="/android_asset/www/assets/icon/bmi-myths-main.jpg" />
-    <ion-list>
+  <ion-content padding >
+    <div *ngIf="flag!=1">
+      <img src="/android_asset/www/assets/icon/bmi-myths-main.jpg" />
+      <form (ngSubmit)="cal()">
+        <ion-list>
 
-      <ion-item>
-        <ion-label stacked>Height</ion-label>
-        <ion-input type="text"></ion-input>kg
-      </ion-item>
+          <ion-item>
+            <ion-label stacked>Height(m) </ion-label>
+            <ion-input type="number" [(ngModel)]="height" name="height" step="0.01" min="0"></ion-input>
+          </ion-item>
 
-      <ion-item>
-        <ion-label stacked>Weight</ion-label>
-        <ion-input type="text"></ion-input>cm
-      </ion-item>
+          <ion-item>
+            <ion-label stacked>Weight(kg) </ion-label>
+            <ion-input type="number" [(ngModel)]="weight" name="weight" step="0.01" min="0"></ion-input>
+          </ion-item>
 
-    </ion-list>
+        </ion-list>
 
-    <div padding>
-      <button ion-button color="primary" block>Calculate BMI</button>
+        <div padding>
+          <button type="submit" ion-button color="primary" block>Calculate BMI</button>
+        </div>
+      </form>
     </div>
+    <div *ngIf="flag==1">
+      
+        <img src="/android_asset/www/assets/icon/calculator.jpg" />
+        Your BMI is : {{bmi}}
 
+    </div>
+      
+   
   </ion-content>
+

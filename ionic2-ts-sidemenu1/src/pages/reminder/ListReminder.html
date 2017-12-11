@@ -1,0 +1,36 @@
+<ion-content>
+  <div padding>
+    <ion-segment isActive="true" [(ngModel)]="pet">
+      <ion-segment-button value="Add">
+        Add Reminder
+      </ion-segment-button>
+      <ion-segment-button value="List">
+        List Reminder
+      </ion-segment-button>
+    </ion-segment>
+  </div>
+
+  <div [ngSwitch]="pet">
+    <ion-list *ngSwitchCase="'Add'">
+      <ion-item>
+        <ion-thumbnail item-start>
+
+        </ion-thumbnail>
+        <h2>Add</h2>
+      </ion-item>
+      ...
+    </ion-list>
+
+    <ion-list *ngSwitchCase="'List'">
+      <ion-item>
+        <ion-thumbnail item-start>
+         
+        </ion-thumbnail>
+        <h2>List</h2>
+      </ion-item>
+      ...
+    </ion-list>
+  </div>
+</ion-content>
+
+

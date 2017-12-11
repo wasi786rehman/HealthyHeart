@@ -2,6 +2,8 @@ import { Component, ViewChild } from '@angular/core';
 import { Nav, Platform } from 'ionic-angular';
 import { StatusBar, Splashscreen } from 'ionic-native';
 
+
+
 import { Page1 } from '../pages/page1/page1';
 import { Page2 } from '../pages/page2/page2';
 import { Page3 } from '../pages/page3/page3';
@@ -15,21 +17,21 @@ import { medication } from '../pages/medication/medication';
 })
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
-
+  
   rootPage: any = Page1;
 
-  pages: Array<{title: string, component: any}>;
+  pages: Array<{title: string, component: any,icon:string}>;
 
   constructor(public platform: Platform) {
     this.initializeApp();
 
     // used for an example of ngFor and navigation
     this.pages = [
-      { title: 'Home', component: Page1 },
-      { title: 'Information', component: Page2 },
-      { title: 'Lifestyle Modification', component: Page3 },
-      { title: 'Medication', component: medication },
-      { title: 'BMI Calculator', component: Page4 }
+      { title: 'Home', component: Page1, icon: 'home' },
+      { title: 'Information', component: Page2, icon:'information'},
+      { title: 'Lifestyle Modification', component: Page3,icon:'body' },
+      { title: 'Medication', component: medication, icon:'medkit'},
+      { title: 'BMI Calculator', component: Page4, icon:'calculator'}
     ];
 
   }
@@ -40,6 +42,9 @@ export class MyApp {
       // Here you can do any higher level native things you might need.
       StatusBar.styleDefault();
       Splashscreen.hide();
+
+
+      
     });
   }
 

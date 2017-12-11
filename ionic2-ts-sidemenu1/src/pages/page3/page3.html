@@ -6,9 +6,13 @@
     <ion-title>Life Style Modification</ion-title>
   </ion-navbar>
 </ion-header>
-<ion-content>
+<ion-content padding>
+  <p><strong>&nbsp;</strong></p>
+  <div>
+    Your lifestyle is not only your best defence against heart disease, it's also your responsibility. A heart-healthy lifestyle includes the ideas listed below. By following these simple steps you can reduce all of the modifiable risk factors for heart disease, heart attack and stroke. 
+  </div>
   <ion-list>
-    <button ion-item *ngFor="let item of topic" (click)="itemSelected(item)">
+    <button ion-item *ngFor="let item of topic; let i=index " (click)="itemSelected(i)">
       {{ item }}
       <ion-icon md="ios-arrow-forward" item-right></ion-icon>
     </button>

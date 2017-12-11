@@ -2,19 +2,19 @@ import { Component } from '@angular/core';
 
 import { NavController, NavParams } from 'ionic-angular';
 
+
 @Component({
-  selector: 'cabg-cabg',
-  templateUrl: 'cabg.html'
+  selector: 'AddReminder-AddReminder',
+  templateUrl: 'AddReminder.html'
 })
-export class cabg{
-  items: string;
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+export class AddReminder {
+  constructor(public navCtrl: NavController) {
     // If we navigated to this page, we will have an item available as a nav param
-    this.items = navParams.get('item');
+
     // Let's populate this page with some filler content for funzies
-    
-   
+
+
   }
 
-  
 }
+
