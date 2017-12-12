@@ -2,6 +2,14 @@ import { Component } from '@angular/core';
 
 import { NavController, NavParams } from 'ionic-angular';
 import { lifestylemodification } from '../lifestylemodification/lifestylemodification';
+
+
+import { ViewChild, ElementRef } from '@angular/core';
+
+import { PopoverController } from 'ionic-angular';
+import { PopoverPage} from '../popover/popover'
+
+
 @Component({
   selector: 'page-page3',
   templateUrl: 'page3.html'
@@ -11,7 +19,10 @@ export class Page3 {
   icons: string[];
   items: Array<{ title: string, note: string, icon: string }>;
   topic: string[];
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+
+  @ViewChild('popoverContent', { read: ElementRef }) content: ElementRef;
+  @ViewChild('popoverText', { read: ElementRef }) text: ElementRef;
+  constructor(public navCtrl: NavController, public navParams: NavParams, private popoverCtrl: PopoverController) {
     // If we navigated to this page, we will have an item available as a nav param
     this.selectedItem = navParams.get('item');
 
@@ -39,6 +50,18 @@ export class Page3 {
     console.log(item);
     this.navCtrl.push(lifestylemodification, {
       item: item
+    });
+  }
+
+  presentPopover(ev) {
+
+    let popover = this.popoverCtrl.create(PopoverPage, {
+      contentEle: this.content.nativeElement,
+      textEle: this.text.nativeElement
+    });
+
+    popover.present({
+      ev: ev
     });
   }
 }

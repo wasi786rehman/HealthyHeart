@@ -6,11 +6,17 @@
     <ion-title>
       CABG
     </ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="presentPopover($event)">
+        <ion-icon name="more"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
 </ion-header>
 
 
-  <ion-content padding>
+<ion-content #popoverContent padding class="popover-page">
+  <div #popoverText class="text-to-change">
 
     <div *ngIf="items==1">
 
@@ -38,7 +44,7 @@
       </ul>
       <p>&nbsp;</p>
       <p>&nbsp;</p>
-      </div>
+    </div>
     <div *ngIf="items==3">
       <p><strong>CONTINUE TAKING CARE OF YOUR HEART:</strong></p>
       <p><strong>&nbsp;</strong></p>
@@ -54,6 +60,7 @@
         <li><strong>Stick to your medications:</strong></li>
       </ol>
       <p>Taking medicines as prescribed also is an important part of care after surgery. Your doctor may prescribe medicines to manage pain during recovery; lower cholesterol and blood pressure; reduce the risk of blood clots forming; manage&nbsp;diabetes; or treat depression.</p>
-      </div>
+    </div>
+    </div>
 </ion-content>
 

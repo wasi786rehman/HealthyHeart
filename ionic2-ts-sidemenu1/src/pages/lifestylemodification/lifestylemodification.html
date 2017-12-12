@@ -6,42 +6,49 @@
     <ion-title>
       Lifestyle Modification
     </ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="presentPopover($event)">
+        <ion-icon name="more"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
 </ion-header>
 
 
-  <ion-content padding>
+<ion-content #popoverContent padding class="popover-page">
+  <div #popoverText class="text-to-change">
 
-    <div *ngIf="item==0" ><p>&nbsp;</p>
-<ol>
-  <li><strong>HEART HEALTHY DIET</strong></li>
-</ol>
-<p>A healthy diet is one of the best weapons you have to fight cardiovascular disease. The food you eat (and the amount) can affect other controllable risk factors: cholesterol, blood pressure, diabetes and overweight.</p>
-<p>&nbsp;</p>
-<p><strong>TIPS:</strong></p>
-<ul>
-  <li>Eat a diet rich in vegetables .You should aim to 400-500g or five servings (5 servings x 80g) of fruits and vegetables per day.</li>
-  <li>Eat a variety of seasonal fruits and vegetables (both cooked and as a salad).</li>
-  <li>Include whole legumes such as moong daal, masoor daal,1 handful of nuts like walnut, almond, and seeds like pumpkin seed, melon seeds etc.</li>
-  <li>High-fibre foods such as beans, sprouts, and whole grains are a great choice. Choose whole grain bread, cereal, and rice.</li>
-  <li>Choose low-fat dairy products such as toned milk, skimmed milk, home-made paneer, chach, lassi etc.</li>
-  <li>Eat fish at least twice a week.</li>
-  <li>Select skinless chicken and choose lean cuts of meat. But, limit your intake of red meats such as mutton, beef.</li>
-  <li>Limit your oil consumption to 3-4 tsp of oil per day.</li>
-  <li>Practice alternating/blending of your cooking oil. Use different type of oils such as refined oil, sunflower oil,soyabean oil , olive oil.</li>
-  <li>Avoid dalda, ghee, vanaspati etc.</li>
-  <li>Limit how much saturated fat, trans fat and added sugars you eat. Such as baked goods, biscuits, cakes etc.</li>
-  <li>Limit your sugar consumption to 3-4 tsp per day if you are not having diabetes.</li>
-  <li>If you are diabetic take no or less sugar. Reduce consumption of simple sugars that are found in soda, candy and sugary desserts.</li>
-  <li>Choose and prepare foods with little or no salt (sodium). Aim to consume no more than 1,500 mg of sodium per day.</li>
-  <li>Cut down on salt. Use &frac34; tsp of salt per day. Do not sprinkle extra salt on your food.</li>
-  <li>Use seasonings instead of salt to enhance the taste of food like lemon juice,vinegar,basil,garlic etc.</li>
-  <li>Avoid use of papad, pickles, packaged food etc.</li>
-  <li>Avoid consuming fast foods like burgers, fries, samosa, kachori, paranthas, sweets etc. It is one of the easiest way to reduce your intake of saturated fats.&nbsp;</li>
-  <li>Eating a small amount of unsaturated fat will increase the level of good cholesterol. Examples are oily fish, nuts and seeds, sunflower,olive oil etc.</li>
-  <li>Avoid consuming white rice .Substitute it with brown rice.</li>
-</ul>
-</div>
+    <div *ngIf="item==0">
+      <p>&nbsp;</p>
+      <ol>
+        <li><strong>HEART HEALTHY DIET</strong></li>
+      </ol>
+      <p>A healthy diet is one of the best weapons you have to fight cardiovascular disease. The food you eat (and the amount) can affect other controllable risk factors: cholesterol, blood pressure, diabetes and overweight.</p>
+      <p>&nbsp;</p>
+      <p><strong>TIPS:</strong></p>
+      <ul>
+        <li>Eat a diet rich in vegetables .You should aim to 400-500g or five servings (5 servings x 80g) of fruits and vegetables per day.</li>
+        <li>Eat a variety of seasonal fruits and vegetables (both cooked and as a salad).</li>
+        <li>Include whole legumes such as moong daal, masoor daal,1 handful of nuts like walnut, almond, and seeds like pumpkin seed, melon seeds etc.</li>
+        <li>High-fibre foods such as beans, sprouts, and whole grains are a great choice. Choose whole grain bread, cereal, and rice.</li>
+        <li>Choose low-fat dairy products such as toned milk, skimmed milk, home-made paneer, chach, lassi etc.</li>
+        <li>Eat fish at least twice a week.</li>
+        <li>Select skinless chicken and choose lean cuts of meat. But, limit your intake of red meats such as mutton, beef.</li>
+        <li>Limit your oil consumption to 3-4 tsp of oil per day.</li>
+        <li>Practice alternating/blending of your cooking oil. Use different type of oils such as refined oil, sunflower oil,soyabean oil , olive oil.</li>
+        <li>Avoid dalda, ghee, vanaspati etc.</li>
+        <li>Limit how much saturated fat, trans fat and added sugars you eat. Such as baked goods, biscuits, cakes etc.</li>
+        <li>Limit your sugar consumption to 3-4 tsp per day if you are not having diabetes.</li>
+        <li>If you are diabetic take no or less sugar. Reduce consumption of simple sugars that are found in soda, candy and sugary desserts.</li>
+        <li>Choose and prepare foods with little or no salt (sodium). Aim to consume no more than 1,500 mg of sodium per day.</li>
+        <li>Cut down on salt. Use &frac34; tsp of salt per day. Do not sprinkle extra salt on your food.</li>
+        <li>Use seasonings instead of salt to enhance the taste of food like lemon juice,vinegar,basil,garlic etc.</li>
+        <li>Avoid use of papad, pickles, packaged food etc.</li>
+        <li>Avoid consuming fast foods like burgers, fries, samosa, kachori, paranthas, sweets etc. It is one of the easiest way to reduce your intake of saturated fats.&nbsp;</li>
+        <li>Eating a small amount of unsaturated fat will increase the level of good cholesterol. Examples are oily fish, nuts and seeds, sunflower,olive oil etc.</li>
+        <li>Avoid consuming white rice .Substitute it with brown rice.</li>
+      </ul>
+    </div>
     <div *ngIf="item==1">
       <ol start="2">
         <li><strong>BE PHYSICALLY ACTIVE: </strong></li>
@@ -130,41 +137,41 @@
       </table>
       <img src="/android_asset/www/assets/icon/what-is-the-best-exercise-after-heart-surgery.png" />
 
-          <h2>Type of Exercise</h2>
-          <p>Following exercises are recommended after the surgery:</p>
-       
-          
+      <h2>Type of Exercise</h2>
+      <p>Following exercises are recommended after the surgery:</p>
 
 
-        
 
-        
-          <ul>
-            <li><strong>Aerobics</strong>: walking, jogging, cycling, stairs climbing.</li>
-            <li><strong>Flexibility training: </strong>Upper and lower body ROM</li>
-            <li><strong>Coughing exercises: </strong>Huff coughing</li>
-            <li><strong>Breathing exercises: </strong>pursed lip breathing, diaphragmatic breathing, incentive spirometry.</li>
-            <li><strong>Relaxation exercises: </strong>warm up and cool down, deep breathing.</li>
-            <li><strong>Strengthening exercises: </strong>Bridging, single leg raises, quadriceps.</li>
-          </ul>
-        
-        <ion-list>
-          <button ion-item *ngFor="let item of exercises; let i=index " (click)="itemSelected(i)">
-            {{ item }}
-            <ion-icon md="ios-arrow-forward" item-right></ion-icon>
-          </button>
 
-        </ion-list>
 
-     
 
-      
-      
+
+      <ul>
+        <li><strong>Aerobics</strong>: walking, jogging, cycling, stairs climbing.</li>
+        <li><strong>Flexibility training: </strong>Upper and lower body ROM</li>
+        <li><strong>Coughing exercises: </strong>Huff coughing</li>
+        <li><strong>Breathing exercises: </strong>pursed lip breathing, diaphragmatic breathing, incentive spirometry.</li>
+        <li><strong>Relaxation exercises: </strong>warm up and cool down, deep breathing.</li>
+        <li><strong>Strengthening exercises: </strong>Bridging, single leg raises, quadriceps.</li>
+      </ul>
+
+      <ion-list>
+        <button ion-item *ngFor="let item of exercises; let i=index " (click)="itemSelected(i)">
+          {{ item }}
+          <ion-icon md="ios-arrow-forward" item-right></ion-icon>
+        </button>
+
+      </ion-list>
+
+
+
+
+
       <p><strong>&nbsp;</strong></p>
 
       <p>&nbsp;</p>
 
-     
+
       <p><strong>&nbsp;</strong></p>
       <p><strong>PRECAUTIONS:</strong></p>
       <p><strong>&nbsp;</strong></p>
@@ -201,143 +208,149 @@
       <p>&lt; 80 cm.</p>
 
     </div>
-    <div *ngIf="item==3"><ol start="4">
-  <li><a href="http://www.heart.org/HEARTORG/Conditions/HeartAttack/LifeAfteraHeartAttack/Lifestyle-Changes-for-Heart-Attack-Prevention_UCM_303934_Article.jsp"><strong>STOP SMOKING</strong></a><strong> /TOBACCO USE</strong></li>
-</ol>
-<p>Stop smoking or using tobacco. It will reduce your risk of premature death, heart diseases, diabetes, and obesity.</p>
-<p>&nbsp;</p>
-<p><strong>TIPS:</strong></p>
-<ul>
-  <li>Decide on a Quit Day and ask your family and friends to support you.</li>
-  <li>Ask your healthcare provider for information, programs and medications that may help.</li>
-  <li>Go where smoking isn&rsquo;t allowed, and avoid being around people who smoke.</li>
-  <li>Keep busy doing things that make it hard to smoke.</li>
-  <li>Nicotine gums, lozenges sprays can be used.</li>
-</ul>
-<p>&nbsp;</p>
-</div>
-    <div *ngIf="item==4"><ol start="5">
-  <li><strong> LIMIT YOUR ALCOHOL</strong></li>
-</ol>
-<p><strong>&nbsp;</strong></p>
-<p>Drinking too much alcohol can raise blood pressure, increase&nbsp;cardiomyopathy , stroke, cancer, and other diseases.&nbsp;However, there is a cardio protective effect of moderate alcohol consumption. If you drink, limit your alcohol consumption to no more than two drinks per day for men and no more than one drink per day for women.&nbsp;It's not recommended that non drinkers start using alcohol or that drinker&rsquo;s increase the amount they drink.</p>
-<ul>
-  <li>One drink is defined as Beer- 355mL</li>
-</ul>
-</div>
-    <div *ngIf="item==5"><ol start="6">
-  <li><strong> REDUCE STRESS</strong></li>
-</ol>
-<p><strong>&nbsp;</strong></p>
-<p>There is a relationship between&nbsp;<a href="http://www.heart.org/HEARTORG/Conditions/More/MyHeartandStrokeNews/Coronary-Artery-Disease---Coronary-Heart-Disease_UCM_436416_Article.jsp">coronary heart disease</a>&nbsp;risk and stress in a person's life that may affect the risk factors for heart disease and&nbsp;<a href="http://www.strokeassociation.org/">stroke</a>. For example, people under stress may overeat, start smoking or smoke more than they otherwise would. Depression, hostility, anger, and low social support are associated with heart disease, after controlling for adverse health behaviors. These risk factors are unfortunately increased in lower socio-economic groups</p>
-<p><strong>TIPS:</strong></p>
-<ul>
-  <li>Practice healthy techniques for managing stress such as<strong> relaxation exercises</strong>, yoga, meditation</li>
-  <li>Chat with family and friends.</li>
-  <li>Get enough sleep, 6-8 hours per day.</li>
-  <li>Pursue a hobby like reading, writing, music, and painting.</li>
-</ul>
-</div>
-    <div *ngIf="item==6"><ol start="7">
-  <li><strong> TAKE CARE OF YOUR NUMBERS:</strong></li>
-</ol>
-<p>&nbsp;</p>
-<p>Manage your blood pressure, blood sugar levels, cholesterol levels, BMI and waist circumference. Talk to your doctor about your numbers and how they impact your overall risk.</p>
-<table>
-  <tbody>
-    <tr>
-      <td width="163">
-        <p><strong>Category </strong></p>
-      </td>
-      <td width="163">
-        <p><strong>Ideal Numbers </strong></p>
-      </td>
-    </tr>
-    <tr>
-      <td width="163">
-        <p>Total Cholesterol</p>
-      </td>
-      <td rowspan="2" width="163">
-        <p>Less than 200mg/dl</p>
-        <p>&nbsp;</p>
-        <p>50mg/dl and higher</p>
-        <p>&nbsp;</p>
-        <p>Less than 130 mg/dl</p>
-        <p>&nbsp;</p>
-        <p>&nbsp;</p>
-        <p>Less than 150 mg/dl</p>
-      </td>
-    </tr>
-    <tr>
-      <td width="163">
-        <p>High density lipid</p>
-        <p>&nbsp;</p>
-        <p>Low density lipids</p>
-        <p>&nbsp;</p>
-        <p>Triglycerides&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
-        <p>&nbsp;</p>
-      </td>
-    </tr>
-    <tr>
-      <td width="163">
-        <p>Blood Pressure</p>
-      </td>
-      <td width="163">
-        <p>Less than 120/80 mm Hg</p>
-      </td>
-    </tr>
-    <tr>
-      <td width="163">
-        <p>Fasting Blood Sugar</p>
-      </td>
-      <td width="163">
-        <p>Less than 100 mg/dL</p>
-      </td>
-    </tr>
-    <tr>
-      <td width="163">
-        <p>Body Mass Index (BMI)</p>
-        <p>&nbsp;</p>
-        <p>&nbsp;Waist circumference</p>
-      </td>
-      <td width="163">
-        <p>Less than 25 kg/m<sup>2 </sup></p>
-        <p>&nbsp;</p>
-        <p>&nbsp;</p>
-        <p>In males &lt; 94 cm&nbsp; Females &nbsp;&nbsp;&lt; 80 cm.</p>
-        <p>&nbsp;</p>
-      </td>
-    </tr>
-  </tbody>
-</table>
-</div>
-    <div *ngIf="item==7"><ol start="8">
-  <li><strong> RESUMING SEXUAL ACTIVITY</strong></li>
-</ol>
-<p><strong>&nbsp;</strong></p>
-<p>An important issue for many patients who have had bypass surgery is when sexual activity can be safely resumed. In the first few weeks after an&nbsp;uncomplicated&nbsp;heart attack, most people are at high risk of heart-related problems during sex as a result of a rise in the heart rate and blood pressure. However, this risk becomes much smaller by 6-8weeks after surgery.</p>
-<p>&nbsp;</p>
-<p><strong>TIPS:</strong></p>
-<ul>
-  <li>Assume positions which can avoid strain on sternum and incision.</li>
-  <li>Extra pillows can help you to feel comfortable.</li>
-</ul>
-</div>
-    <div *ngIf="item==8"><ol start="9">
-  <li><strong> FOLLOW UP:</strong></li>
-</ol>
-<p><strong>&nbsp;</strong></p>
-<p>&nbsp;Follow-up care is of great importance since people who have had bypass surgery have a significantly increased risk of more cardiac events, including recurrent chest pain, heart attack, heart failure, and an increased risk of dying. The risk of these problems is greatly reduced by closely following a clinician's recommendations for rehabilitation, follow-up visits, and treatments. Over time, the treatment plan may change as heart health improves or other medical problems develop.</p>
-<p>&nbsp;</p>
-<p><strong>TIPS:</strong></p>
-<p><strong>&nbsp;</strong></p>
-<ul>
-  <li>Follow up your doctor on time.</li>
-  <li>Get your investigations done on time.</li>
-  <li>Check your B.P, blood sugar level as advised and record it.</li>
-  <li>Maintain diary, set reminders and involve family and friends.</li>
-</ul></div>
-
+    <div *ngIf="item==3">
+      <ol start="4">
+        <li><a href="http://www.heart.org/HEARTORG/Conditions/HeartAttack/LifeAfteraHeartAttack/Lifestyle-Changes-for-Heart-Attack-Prevention_UCM_303934_Article.jsp"><strong>STOP SMOKING</strong></a><strong> /TOBACCO USE</strong></li>
+      </ol>
+      <p>Stop smoking or using tobacco. It will reduce your risk of premature death, heart diseases, diabetes, and obesity.</p>
+      <p>&nbsp;</p>
+      <p><strong>TIPS:</strong></p>
+      <ul>
+        <li>Decide on a Quit Day and ask your family and friends to support you.</li>
+        <li>Ask your healthcare provider for information, programs and medications that may help.</li>
+        <li>Go where smoking isn&rsquo;t allowed, and avoid being around people who smoke.</li>
+        <li>Keep busy doing things that make it hard to smoke.</li>
+        <li>Nicotine gums, lozenges sprays can be used.</li>
+      </ul>
+      <p>&nbsp;</p>
+    </div>
+    <div *ngIf="item==4">
+      <ol start="5">
+        <li><strong> LIMIT YOUR ALCOHOL</strong></li>
+      </ol>
+      <p><strong>&nbsp;</strong></p>
+      <p>Drinking too much alcohol can raise blood pressure, increase&nbsp;cardiomyopathy , stroke, cancer, and other diseases.&nbsp;However, there is a cardio protective effect of moderate alcohol consumption. If you drink, limit your alcohol consumption to no more than two drinks per day for men and no more than one drink per day for women.&nbsp;It's not recommended that non drinkers start using alcohol or that drinker&rsquo;s increase the amount they drink.</p>
+      <ul>
+        <li>One drink is defined as Beer- 355mL</li>
+      </ul>
+    </div>
+    <div *ngIf="item==5">
+      <ol start="6">
+        <li><strong> REDUCE STRESS</strong></li>
+      </ol>
+      <p><strong>&nbsp;</strong></p>
+      <p>There is a relationship between&nbsp;<a href="http://www.heart.org/HEARTORG/Conditions/More/MyHeartandStrokeNews/Coronary-Artery-Disease---Coronary-Heart-Disease_UCM_436416_Article.jsp">coronary heart disease</a>&nbsp;risk and stress in a person's life that may affect the risk factors for heart disease and&nbsp;<a href="http://www.strokeassociation.org/">stroke</a>. For example, people under stress may overeat, start smoking or smoke more than they otherwise would. Depression, hostility, anger, and low social support are associated with heart disease, after controlling for adverse health behaviors. These risk factors are unfortunately increased in lower socio-economic groups</p>
+      <p><strong>TIPS:</strong></p>
+      <ul>
+        <li>Practice healthy techniques for managing stress such as<strong> relaxation exercises</strong>, yoga, meditation</li>
+        <li>Chat with family and friends.</li>
+        <li>Get enough sleep, 6-8 hours per day.</li>
+        <li>Pursue a hobby like reading, writing, music, and painting.</li>
+      </ul>
+    </div>
+    <div *ngIf="item==6">
+      <ol start="7">
+        <li><strong> TAKE CARE OF YOUR NUMBERS:</strong></li>
+      </ol>
+      <p>&nbsp;</p>
+      <p>Manage your blood pressure, blood sugar levels, cholesterol levels, BMI and waist circumference. Talk to your doctor about your numbers and how they impact your overall risk.</p>
+      <table>
+        <tbody>
+          <tr>
+            <td width="163">
+              <p><strong>Category </strong></p>
+            </td>
+            <td width="163">
+              <p><strong>Ideal Numbers </strong></p>
+            </td>
+          </tr>
+          <tr>
+            <td width="163">
+              <p>Total Cholesterol</p>
+            </td>
+            <td rowspan="2" width="163">
+              <p>Less than 200mg/dl</p>
+              <p>&nbsp;</p>
+              <p>50mg/dl and higher</p>
+              <p>&nbsp;</p>
+              <p>Less than 130 mg/dl</p>
+              <p>&nbsp;</p>
+              <p>&nbsp;</p>
+              <p>Less than 150 mg/dl</p>
+            </td>
+          </tr>
+          <tr>
+            <td width="163">
+              <p>High density lipid</p>
+              <p>&nbsp;</p>
+              <p>Low density lipids</p>
+              <p>&nbsp;</p>
+              <p>Triglycerides&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+              <p>&nbsp;</p>
+            </td>
+          </tr>
+          <tr>
+            <td width="163">
+              <p>Blood Pressure</p>
+            </td>
+            <td width="163">
+              <p>Less than 120/80 mm Hg</p>
+            </td>
+          </tr>
+          <tr>
+            <td width="163">
+              <p>Fasting Blood Sugar</p>
+            </td>
+            <td width="163">
+              <p>Less than 100 mg/dL</p>
+            </td>
+          </tr>
+          <tr>
+            <td width="163">
+              <p>Body Mass Index (BMI)</p>
+              <p>&nbsp;</p>
+              <p>&nbsp;Waist circumference</p>
+            </td>
+            <td width="163">
+              <p>Less than 25 kg/m<sup>2 </sup></p>
+              <p>&nbsp;</p>
+              <p>&nbsp;</p>
+              <p>In males &lt; 94 cm&nbsp; Females &nbsp;&nbsp;&lt; 80 cm.</p>
+              <p>&nbsp;</p>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div *ngIf="item==7">
+      <ol start="8">
+        <li><strong> RESUMING SEXUAL ACTIVITY</strong></li>
+      </ol>
+      <p><strong>&nbsp;</strong></p>
+      <p>An important issue for many patients who have had bypass surgery is when sexual activity can be safely resumed. In the first few weeks after an&nbsp;uncomplicated&nbsp;heart attack, most people are at high risk of heart-related problems during sex as a result of a rise in the heart rate and blood pressure. However, this risk becomes much smaller by 6-8weeks after surgery.</p>
+      <p>&nbsp;</p>
+      <p><strong>TIPS:</strong></p>
+      <ul>
+        <li>Assume positions which can avoid strain on sternum and incision.</li>
+        <li>Extra pillows can help you to feel comfortable.</li>
+      </ul>
+    </div>
+    <div *ngIf="item==8">
+      <ol start="9">
+        <li><strong> FOLLOW UP:</strong></li>
+      </ol>
+      <p><strong>&nbsp;</strong></p>
+      <p>&nbsp;Follow-up care is of great importance since people who have had bypass surgery have a significantly increased risk of more cardiac events, including recurrent chest pain, heart attack, heart failure, and an increased risk of dying. The risk of these problems is greatly reduced by closely following a clinician's recommendations for rehabilitation, follow-up visits, and treatments. Over time, the treatment plan may change as heart health improves or other medical problems develop.</p>
+      <p>&nbsp;</p>
+      <p><strong>TIPS:</strong></p>
+      <p><strong>&nbsp;</strong></p>
+      <ul>
+        <li>Follow up your doctor on time.</li>
+        <li>Get your investigations done on time.</li>
+        <li>Check your B.P, blood sugar level as advised and record it.</li>
+        <li>Maintain diary, set reminders and involve family and friends.</li>
+      </ul>
+    </div>
     <div>
 
       <div *ngIf="exercise==0">
@@ -417,15 +430,13 @@
         <p><strong>Quadriceps</strong> :Practice 5 set of 10 repetitions.</p>
       </div>
       <div *ngIf="exercise==13">
-    <img src="/android_asset/www/assets/icon/warmup and cooldown.jpg" />
+        <img src="/android_asset/www/assets/icon/warmup and cooldown.jpg" />
 
-    <p><strong>Warm up and cool down:</strong></p>
-  </div>
+        <p><strong>Warm up and cool down:</strong></p>
+      </div>
     </div>
 
 
-
-
-    
+    </div>
 </ion-content>
 
