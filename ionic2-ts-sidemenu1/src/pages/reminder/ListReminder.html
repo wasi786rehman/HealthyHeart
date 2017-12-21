@@ -3,7 +3,7 @@
     
      
    
-    <ion-title>{{event}}</ion-title>
+    <ion-title>{{event}}</ion-title>{{items}}
   </ion-navbar>
 </ion-header>
 
@@ -120,24 +120,24 @@
 
             <ion-item>
               <ion-label floating>Strength</ion-label>
-              <ion-input type="password" [(ngModel)]="MedicationStrength" name="strength"></ion-input>
+              <ion-input type="text" [(ngModel)]="MedicationStrength" name="strength"></ion-input>
             </ion-item>
             <ion-item>
               <ion-label floating>Unit</ion-label>
               <ion-select [(ngModel)]="MedicationUnit">
-                <ion-option value="f">Mg</ion-option>
-                <ion-option value="m">ml</ion-option>
-                <ion-option value="f">microgram</ion-option>
-                <ion-option value="m">gram</ion-option>
+                <ion-option value="mg">Mg</ion-option>
+                <ion-option value="ml">ml</ion-option>
+                <ion-option value="mc">microgram</ion-option>
+                <ion-option value="g">gram</ion-option>
               </ion-select>
             </ion-item>
 
             <ion-item>
               <ion-label floating>Schedule</ion-label>
               <ion-select [(ngModel)]="MedicationSchedule">
-                <ion-option value="f">Daily</ion-option>
-                <ion-option value="m">Weekly</ion-option>
-                <ion-option value="f">Monthly</ion-option>
+                <ion-option value="d">Daily</ion-option>
+                <ion-option value="w">Weekly</ion-option>
+                <ion-option value="m">Monthly</ion-option>
 
               </ion-select>
             </ion-item>
@@ -196,6 +196,7 @@
 
   <ion-card-content>
     <div>
+      Name:{{item.Name}}
       Date:   {{item.Date}}<br />
       Time: {{item.Time}}<br />
       Description {{item.Description}}

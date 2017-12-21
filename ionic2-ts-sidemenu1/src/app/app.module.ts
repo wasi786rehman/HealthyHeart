@@ -15,6 +15,10 @@ import { AddReminder } from '../pages/AddReminder/AddReminder';
 import { ListReminder } from '../pages/reminder/ListReminder';
 import { Storage } from '@ionic/storage';
 
+import { BackgroundMode } from '@ionic-native/background-mode';
+import { LocalNotifications } from '@ionic-native/local-notifications';
+
+import { PhonegapLocalNotification } from '@ionic-native/phonegap-local-notification';
 
 
 
@@ -55,6 +59,6 @@ medication,
     AddReminder,
     PopoverPage
   ],
-  providers: [{ provide: ErrorHandler, useClass: IonicErrorHandler }, Storage]
+  providers: [PhonegapLocalNotification,BackgroundMode,LocalNotifications,{ provide: ErrorHandler, useClass: IonicErrorHandler }, Storage]
 })
 export class AppModule {}

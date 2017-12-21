@@ -3,8 +3,9 @@ import { Component } from '@angular/core';
 import { NavController, AlertController, Platform, NavParams} from 'ionic-angular';
 import { ViewChild } from '@angular/core';
 import { ToastController } from 'ionic-angular';
-import { Storage } from '@ionic/storage';
-
+//import { Storage } from '@ionic/storage';
+import { SQLite } from 'ionic-native';
+import { PhonegapLocalNotification } from '@ionic-native/phonegap-local-notification';
 
 @Component({
   selector: 'ListReminder-ListReminder',
@@ -20,13 +21,14 @@ export class ListReminder {
   Investigation: Array<{ BloodPressure: any, BloodSugarBeforeMeal: any, BloodSugarAfterMeal, Weight: any, HeartRate:any}>;
 
 
-
+  sqlstorage: any = null;
+  items: Array<Object>;
 
   ExerciseDate: any; ExerciseTime: any; ExerciseDuration: any;
   MedicationMedicineName: any; MedicationStrength: any; MedicationUnit: any; MedicationSchedule: any; MedicationNoofTimes: any; MedicationDate: any; MedicationTime: any; MedicationStocks:any
   AppoinmentDate: any; AppoinmentTime: any; AppoinmentName: string; AppoinmentDescription: string;
   InvestigationBloodPressure: any; InvestigationBloodSugarBeforeMeal: any; InvestigationBloodSugarAfterMeal: any; InvestigationWeight: any; InvestigationHeartRate: any;
-  constructor(public navCtrl: NavController, public navParams: NavParams, public toastCtrl: ToastController, private storage: Storage) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public toastCtrl: ToastController, public noif: PhonegapLocalNotification) {
     // If we navigated to this page, we will have an item available as a nav param
 
     // Let's populate this page with some filler content for funzies
@@ -35,13 +37,13 @@ export class ListReminder {
     this.pet = "Add";
 
     this.Exercise = [];
-    this.storage.get('Exercise').then((data) => {
-      if (data != null) this.Exercise = JSON.parse(data);
-      else this.Exercise = [];
-    }).catch((data) => {
-      console.log(data);
-      this.Exercise = [];
-    });
+    //this.storage.get('Exercise').then((data) => {
+    //  if (data != null) this.Exercise = JSON.parse(data);
+    //  else this.Exercise = [];
+    //}).catch((data) => {
+    //  console.log(data);
+    //  this.Exercise = [];
+    //});
     
      
     
@@ -49,6 +51,22 @@ export class ListReminder {
     this.Medication = [];
     this.Investigation = [];
 
+
+    this.sqlstorage = new SQLite();
+
+    this.sqlstorage.openDatabase({ name: '_ionicstorage.db',location: 'default'}).then(() => {
+
+      this.sqlstorage.executeSql(`create table if not exists items(
+    reference CHAR(10) PRIMARY KEY,
+    name CHAR(30),
+    qMin CHAR(30),
+    qReal CHAR(30),
+  ))`, {});
+
+    });
+    console.log("exec");
+    this.addItem();
+    this.findAll();
   }
   Add()
   {
@@ -59,11 +77,28 @@ export class ListReminder {
       
     });
     toast.present();
+
+    this.noif.requestPermission().then(
+      (permission) => {
+        if (permission === 'granted') {
+
+          // Create the notification
+          this.noif.create('Reminder', {
+            tag: 'message1',
+            body: 'Reminder added successfully',
+            icon: 'assets/icon/favicon.ico'
+
+          });
+
+
+        }
+      }
+    );
   }
   AddExercise()
   {
     this.Exercise.push({ Date: this.ExerciseDate, Time: this.ExerciseTime, Duration: this.ExerciseDuration });
-    this.storage.set('Exercise', JSON.stringify(this.Exercise));
+    //this.storage.set('Exercise', JSON.stringify(this.Exercise));
     this.Add();
 
 
@@ -83,5 +118,29 @@ export class ListReminder {
   {
     this.Investigation.push({BloodPressure:this.InvestigationBloodPressure,BloodSugarAfterMeal:this.InvestigationBloodSugarAfterMeal,Weight:this.InvestigationWeight,HeartRate:this.InvestigationHeartRate,BloodSugarBeforeMeal:this.InvestigationBloodSugarBeforeMeal});
     this.Add();
+  }
+
+  public addItem() {
+    let q = "INSERT INTO items VALUES ('ITEM000001','ITEM','000001','')";
+    this.sqlstorage.executeSql(q).then((data) => {
+      console.log("Success");
+    }, (e) => {
+      console.log("Error :  " + JSON.stringify(e.err));
+    });
+  }
+
+  public findAll() {
+    this.sqlstorage.executeSql("SELECT * FROM items", []).then((data) => {
+      this.items = [];
+      if (data.rows.length > 0) {
+        for (var i = 0; i < data.rows.length; i++) {
+          this.items.push(data.rows.item(i));
+        }
+      }
+    }, (e) => {
+
+      console.log("Errot: " + JSON.stringify(e));
+      });
+    console.log(JSON.stringify(this.items));
   }
 }

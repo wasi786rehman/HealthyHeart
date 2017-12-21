@@ -1,7 +1,11 @@
 import { Component } from '@angular/core';
 
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams ,AlertController} from 'ionic-angular';
 import { cabg } from '../cabg/cabg';
+import { Platform } from 'ionic-angular';
+import { LocalNotifications } from '@ionic-native/local-notifications';
+import { BackgroundMode } from '@ionic-native/background-mode';
+import { PhonegapLocalNotification } from '@ionic-native/phonegap-local-notification';
 @Component({
   selector: 'page-page2',
   templateUrl: 'page2.html'
@@ -12,7 +16,20 @@ export class Page2 {
   items: Array<{ title: string, note: string, icon: string }>;
   topic: string[];
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public alt: AlertController, public noif: PhonegapLocalNotification,private platform: Platform, private localNotifications: LocalNotifications, private backgroundMode: BackgroundMode) {
+
+
+    
+
+    //platform.ready().then(() => {
+    //  this.localNotifications.schedule({
+    //    text: 'Delayed ILocalNotification',
+    //    at: new Date(new Date().getTime() + 3600),
+        
+    //    sound: null
+    //  });
+    //});
+
     // If we navigated to this page, we will have an item available as a nav param
     this.selectedItem = navParams.get('item');
 
@@ -43,4 +60,58 @@ export class Page2 {
       item: item
     });
   }
+
+  not()
+  {
+
+    this.noif.requestPermission().then(
+      (permission) => {
+        if (permission === 'granted') {
+
+          // Create the notification
+          this.noif.create('My Title', {
+            tag: 'message1',
+            body: 'My body',
+            icon: 'assets/icon/favicon.ico'
+             
+          });
+          
+
+        }
+      }
+    );
+
+
+
+    //let v: any;
+    //this.localNotifications.hasPermission().then((data) => {
+    //  v = data.valueOf.toString;
+    //})
+    //let alert = this.alt.create({
+    //  title: v,
+    //  subTitle: '10% of battery remaining',
+    //  buttons: ['Dismiss']
+    //});
+    //alert.present();
+    //this.backgroundMode.enable();
+    //this.backgroundMode.on('activate').subscribe(() => {
+
+    //  console.log('backgroundMode --> activate')
+
+
+    //  let notification = {
+    //    id: 999,
+    //    title: 'Hey!',
+    //    text: 'You put me into background :(',
+    //    at: new Date(new Date().getTime() + (5 * 1000)),
+    //    every: '0'
+    //  };
+    //  this.localNotifications.registerPermission();
+    //  console.log(this.localNotifications.hasPermission());
+    //  this.localNotifications.schedule([notification])
+
+    //})
+  }
+
+  
 }
