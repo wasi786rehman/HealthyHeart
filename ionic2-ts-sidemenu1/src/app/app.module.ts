@@ -14,11 +14,11 @@ import { Reminder } from '../pages/reminder/reminder';
 import { AddReminder } from '../pages/AddReminder/AddReminder';
 import { ListReminder } from '../pages/reminder/ListReminder';
 import { Storage } from '@ionic/storage';
-
-import { BackgroundMode } from '@ionic-native/background-mode';
+import { SQLite } from '@ionic-native/sqlite';
+//import { BackgroundMode } from '@ionic-native/background-mode';
 import { LocalNotifications } from '@ionic-native/local-notifications';
 
-import { PhonegapLocalNotification } from '@ionic-native/phonegap-local-notification';
+//import { PhonegapLocalNotification } from '@ionic-native/phonegap-local-notification';
 
 
 
@@ -59,6 +59,6 @@ medication,
     AddReminder,
     PopoverPage
   ],
-  providers: [PhonegapLocalNotification,BackgroundMode,LocalNotifications,{ provide: ErrorHandler, useClass: IonicErrorHandler }, Storage]
+  providers: [{ provide: ErrorHandler, useClass: IonicErrorHandler }, LocalNotifications, Storage, SQLite]
 })
 export class AppModule {}

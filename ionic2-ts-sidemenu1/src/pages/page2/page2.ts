@@ -3,9 +3,9 @@ import { Component } from '@angular/core';
 import { NavController, NavParams ,AlertController} from 'ionic-angular';
 import { cabg } from '../cabg/cabg';
 import { Platform } from 'ionic-angular';
-import { LocalNotifications } from '@ionic-native/local-notifications';
-import { BackgroundMode } from '@ionic-native/background-mode';
-import { PhonegapLocalNotification } from '@ionic-native/phonegap-local-notification';
+//import { LocalNotifications } from '@ionic-native/local-notifications';
+//import { BackgroundMode } from '@ionic-native/background-mode';
+//import { PhonegapLocalNotification } from '@ionic-native/phonegap-local-notification';
 @Component({
   selector: 'page-page2',
   templateUrl: 'page2.html'
@@ -16,7 +16,7 @@ export class Page2 {
   items: Array<{ title: string, note: string, icon: string }>;
   topic: string[];
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public alt: AlertController, public noif: PhonegapLocalNotification,private platform: Platform, private localNotifications: LocalNotifications, private backgroundMode: BackgroundMode) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public alt: AlertController,private platform: Platform) {
 
 
     
@@ -64,22 +64,22 @@ export class Page2 {
   not()
   {
 
-    this.noif.requestPermission().then(
-      (permission) => {
-        if (permission === 'granted') {
+    //this.noif.requestPermission().then(
+    //  (permission) => {
+    //    if (permission === 'granted') {
 
-          // Create the notification
-          this.noif.create('My Title', {
-            tag: 'message1',
-            body: 'My body',
-            icon: 'assets/icon/favicon.ico'
+    //      // Create the notification
+    //      this.noif.create('My Title', {
+    //        tag: 'message1',
+    //        body: 'My body',
+    //        icon: 'assets/icon/favicon.ico'
              
-          });
+    //      });
           
 
-        }
-      }
-    );
+    //    }
+    //  }
+    //);
 
 
 

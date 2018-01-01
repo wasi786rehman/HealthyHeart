@@ -1,47 +1,66 @@
-<ion-header>
-  <ion-navbar>
-    <button ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
-    </button>
-    <ion-title>Happy Heart</ion-title>
-  </ion-navbar>
-</ion-header>
 
+<script src="/android_asset/www/assets/ng-cordova.min.js"></script>
 
+<ion-header class="colchng">
   
-
-<ion-content padding>
-  <ion-card>
-
-    <ion-item>
-
-      <h2>Happy Heart </h2>
-      <p>Post CABG</p>
-      <p>
-        Welcome to the Happy Heart 
-      </p>
-    </ion-item>
+    <ion-navbar class="bar-button-ios-primary" color="red">
+      <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+      <ion-title>Happy Heart</ion-title>
+    </ion-navbar>
+    </ion-header>
 
 
 
-    <img src="/android_asset/www/assets/icon/heartbeat.jpg" />
 
-    <ion-card-content>
+    <ion-content padding>
+      <ion-card>
 
-    </ion-card-content>
+        <ion-item>
 
-    <ion-row>
+          <h2 color="danger">Happy Heart </h2>
+          <p>Post CABG</p>
+          <p>
+            Welcome to the Happy Heart
+          </p>
+        </ion-item>
 
-      <!--<button ion-button color="light" round (click)="getData()">Alert</button>
-      <button ion-button round (click)="setdata()">e-Diary</button>-->
-      <button ion-button color="secondary" round (click)="reminder()">Reminder</button>
-      <!--<button ion-button color="danger"  (click)="createDatabase()"round>Feedback</button>-->
 
-    </ion-row>
 
-   
-  </ion-card>
+        <img src="/android_asset/www/assets/icon/heartbeat.jpg" />
 
- 
-</ion-content>
+        <ion-card-content>
+
+        </ion-card-content>
+
+        <ion-row>
+
+          <!--<button ion-button color="light" round (click)="getData()">Alert</button>
+          <button ion-button round (click)="setdata()">e-Diary</button>-->
+          <button ion-button color="secondary" round (click)="reminder()">Reminder</button>
+          <!--<button ion-button color="danger"  (click)="createDatabase()"round>Feedback</button>-->
+
+        </ion-row>
+
+
+      </ion-card>
+
+
+    </ion-content>
+    <script>
+      function remindera() {
+        $cordovaLocalNotification.schedule({
+          id: 1,
+          title: 'Title here',
+          text: 'Text here',
+          data: {
+            customProperty: 'custom value'
+          }
+        }).then(function (result) {
+          // ...
+        });
+      }
+
+    </script>
 
